@@ -4,7 +4,6 @@
   "description": "Node Api App For Creator Management",
   "main": "server.js",
   "scripts": {
-    "test": "'Hello People'",
     "start":"node server.js"
     
   },

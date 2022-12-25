@@ -37,9 +37,9 @@ app.use(bodyParser.json());
   app.use('/responsedTask',responsedTaskApis);
 });
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log("App listening at port 5001");
+  console.log(`App listening at port ${port}`);
 });
 
 module.exports=app;
