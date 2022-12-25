@@ -4,17 +4,17 @@ const uri =
   "mongodb+srv://tds:rrr123@node-rest-app.9jvqlbd.mongodb.net/Creator_App";
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-
-
-const app = express();
-mongoose.connect(uri).then(() => {
-  console.log("Connected to db ...");
-
- 
 const bodyParser=require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+const app = express();
+mongoose.connect(uri).then(() => {
+ try{ console.log("Connected to db ...");
+
+ 
+
 
   app.get("/", (req, res, next) => {
     res.send({
@@ -34,7 +34,10 @@ app.use(bodyParser.json());
   app.use('/notes',notesApis);
   app.use('/tasks',taskApis);
   app.use('/collabs',collabsApis);
-  app.use('/responsedTask',responsedTaskApis);
+  app.use('/responsedTask',responsedTaskApis);}
+  catch(err){
+    console.log(`some thing went wrong ${err}`);
+  }
 });
 
 const port = process.env.PORT || 3000;
