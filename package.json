@@ -2,9 +2,11 @@
   "name": "node_backend",
   "version": "1.0.0",
   "description": "Node Api App For Creator Management",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "'Hello People'"
+    "test": "'Hello People'",
+    "start":"node server.js"
+    
   },
   "author": "TDS",
   "license": "ISC",
