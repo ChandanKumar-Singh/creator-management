@@ -8,7 +8,7 @@ const bodyParser=require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+mongoose.set('strictQuery', false);
 const app = express();
 mongoose.connect(uri).then(() => {
  try{ console.log("Connected to db ...");
