@@ -16,7 +16,6 @@ const storage = multer.diskStorage({
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(null, file.fieldname + "-" + uniqueSuffix + "-" + file.originalname);
   },
-  
 });
 
 const upload = multer({ storage: storage });
@@ -26,10 +25,10 @@ const upload = multer({ storage: storage });
 //   console.log(req.file);
 // })
 
-router.post("/uploadProfilePicture",  (req, res,n)=> {
+router.post("/uploadProfilePicture", (req, res, n) => {
   try {
     var result = upload.single("image");
-console.log(req.file)
+    console.log(req.file);
     res.send({
       message: "Successful",
       data: result,
@@ -65,6 +64,7 @@ console.log(req.file)
 
 ///get all users
 router.get("/getUsers", async (req, res, next) => {
+  console.log('this is getUsers');
   var users = await User.find();
   res.send({
     status: res.statusCode,

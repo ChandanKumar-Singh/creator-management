@@ -12,7 +12,11 @@ mongoose.connect(uri).then(() => {
   try {
     console.log("Connected to db ...");
     const bodyParser = require("body-parser");
-
+    // app.use(function (req, res) {
+    //   res.setHeader("Content-Type", "application/json");
+    //   // res.write("you posted:\n");
+    //   res.end(JSON.stringify(req.body, null, 2));
+    // });
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
     app.get("/", (req, res, next) => {
@@ -38,7 +42,7 @@ mongoose.connect(uri).then(() => {
   }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`App listening at port ${port}`);
 });
